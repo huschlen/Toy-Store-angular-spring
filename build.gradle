@@ -1,0 +1,20 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'war'
+archivesBaseName = 'angular-spring'
+
+version = '1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.2.3.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '1.4.2.RELEASE'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.0.9.Final'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.5'
+    compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
+    //compile group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '1.4.2.RELEASE'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat:1.4.2.RELEASE'
+}

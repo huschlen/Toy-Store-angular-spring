@@ -1,0 +1,15 @@
+USE `inventory`
+CREATE TABLE IF NOT EXISTS `toy` (
+`tid` int(5) NOT NULL AUTO_INCREMENT,
+	`name` varchar(100) NOT NULL,
+	`category` varchar(100) NOT NULL,
+`price` decimal(6,2) NOT NULL,
+`description` varchar(400) NOT NULL,
+	`stock` varchar(100) NOT NULL,
+	PRIMARY KEY(`tid`)
+)DEFAULT CHARSET=latin1;
+
+INSERT INTO `toy`(`tid`, `name`, `category`, `price`, `description`, `stock`) VALUES
+(1, “Dave Bear”, “Stuffed Animals”, 30.00,”7 feet tall”,1),
+(2, “Naoko Barbie”, “Doll”, 30.00,”Super cute”,2),
+(3, “Kevin Game”, “Game”,40.00,”Super fun”,12);

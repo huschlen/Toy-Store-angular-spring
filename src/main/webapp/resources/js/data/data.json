@@ -1,0 +1,50 @@
+[
+	{
+		"tid":0,
+		"name":"Baby Bear",
+		"category":"Stuffed Animals",
+		"price":50,
+		"description":"Super soft and cuddly",
+		"stock":1
+	},
+	{
+		"tid":1,
+		"name":"My Bear",
+		"category":"Stuffed Animals",
+		"price":70,
+		"description":"Dances when you push his tummy",
+		"stock":11
+	},
+	{
+		"tid":2,
+		"name":"Big Bear",
+		"category":"Stuffed Animals",
+		"price":80,
+		"description":"4 feet tall",
+		"stock":22
+	},
+	{
+		"tid":3,
+		"name":"Mama Dog",
+		"category":"Stuffed Animals",
+		"price":50,
+		"description":"5 feet tall",
+		"stock":30
+	},
+	{
+		"tid":4,
+		"name":"Baby Dog",
+		"category":"Stuffed Animals",
+		"price":70,
+		"description":"Sings when you push his tummy",
+		"stock":5
+	},
+	{
+		"tid":5,
+		"name":"My Dog",
+		"category":"Stuffed Animals",
+		"price":80,
+		"description":"Can code",
+		"stock":12
+	}
+]
