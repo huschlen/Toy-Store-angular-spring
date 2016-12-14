@@ -1,5 +1,5 @@
 1.Download gradle and set the environment path.
-2.Download MySQL and create database `inventory` and run the script in the file “CREATE_TABLE_stored_procedure”.
+2.Download MySQL and create database `inventory` and run the script in the file “CREATE_TABLE”.
 3.Import this gradle project in to Eclipse.
 4.Configure database user/password in your hibernate code.
 5.Using command prompt go to the root directory of the java project.
