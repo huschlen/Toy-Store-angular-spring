@@ -153,7 +153,7 @@
 		</div> <!--End of div class="add-form"-->
 
 		<!--Begin div class="update-form"-->
-		<div class="update-form"  ng-show="updateToy">
+		<div class="update-form" method="POST" ng-show="updateToy">
 			
 			<h3>Update a toy</h3>
 			<div class="row update-form-row">
@@ -239,7 +239,7 @@
 			</button>
 			<button
 				class="btn btn-danger update-button center-block"
-				ng-click="deleteToy(toyCtrl.toy.tid)"
+				ng-click="toyCtrl.deleteToy(toyCtrl.toy.tid)"
 				ng-show="updateToy">Delete
 			</button>
 		</div> <!--End of div class="update-form"-->	
@@ -257,7 +257,7 @@
 		<p><strong>In Stock: </strong>{{toy.stock}}</p>
 		<button
 			class="btn btn-xs btn-primary"
-			ng-click="editToy(toy.tid)">Edit
+			ng-click="toyCtrl.editToy(toy.tid)">Edit
 		</button>
 	</div>
 </div>
@@ -267,7 +267,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.3.0/ui-bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-resource.js"></script>
 <script src="${pageContext.request.contextPath}/app-resources/js/app.js"></script>
-<script src="${pageContext.request.contextPath}/app-resources/js/controllers/ngInventoryFactory.js"></script>
+<!--<script src="${pageContext.request.contextPath}/app-resources/js/controllers/ngInventoryFactory.js"></script>-->
 <script src="${pageContext.request.contextPath}/app-resources/js/filters/ngStockFilter.js"></script>
 <script src="${pageContext.request.contextPath}/app-resources/js/filters/keywordFilter.js"></script>-->
 </html>
