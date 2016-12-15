@@ -18,7 +18,6 @@ import javax.ws.rs.core.Response;
 import org.junit.ClassRule;
 import org.junit.Test;
 import org.mockito.Mockito;
-import io.dropwizard.testing.junit.ResourceTestRule;
 *******/
 
 /*******

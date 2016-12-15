@@ -18,11 +18,6 @@ import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.health.HealthCheckRegistry;
-import io.dropwizard.db.DataSourceFactory;
-import io.dropwizard.lifecycle.Managed;
-import io.dropwizard.lifecycle.setup.LifecycleEnvironment;
-import io.dropwizard.logging.BootstrapLogging;
-import io.dropwizard.setup.Environment;
 *******/
 
 /*******
