@@ -248,7 +248,7 @@
 
 <!--Inventory Listings-->
 <div class="container">
-	<div class="table-bordered toy-list" ng-repeat="toy in toyCtrl.toys"><!-- | ngStockFilter:stockInfo">-->
+	<div class="table-bordered toy-list" ng-repeat="toy in toyCtrl.toys | ngStockFilter:stockInfo">
 		<p><strong>Id: </strong>{{toy.tid}}</p>
 		<p><strong>Toy Name: </strong>{{toy.name}}</p>
 		<p><strong>Category: </strong>{{toy.category}}</p>
@@ -267,7 +267,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.3.0/ui-bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-resource.js"></script>
 <script src="${pageContext.request.contextPath}/app-resources/js/app.js"></script>
-<!--<script src="${pageContext.request.contextPath}/app-resources/js/controllers/ngInventoryFactory.js"></script>-->
+<!--<script src="${pageContext.request.contextPath}/app-resources/js/controllers/ngInventoryController.js"></script>-->
 <script src="${pageContext.request.contextPath}/app-resources/js/filters/ngStockFilter.js"></script>
-<script src="${pageContext.request.contextPath}/app-resources/js/filters/keywordFilter.js"></script>-->
+<!--<script src="${pageContext.request.contextPath}/app-resources/js/filters/keywordFilter.js"></script>-->
 </html>
