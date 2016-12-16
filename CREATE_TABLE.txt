@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `toy` (
 `description` varchar(400) NOT NULL,
 	`stock` varchar(100) NOT NULL,
 	PRIMARY KEY(`tid`)
-)AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+)ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 INSERT INTO `toy`(`tid`, `name`, `category`, `price`, `description`, `stock`) VALUES
 (1, “Dave Bear”, “Stuffed Animals”, 30.00,”7 feet tall”,1),
