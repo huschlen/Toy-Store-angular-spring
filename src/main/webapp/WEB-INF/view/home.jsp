@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>NaokoInventory</title>
+	<title>Naoko's Toy Store</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/app-resources/css/style.css">
 </head>
@@ -23,40 +23,37 @@
 	<!--Filter by the Number in Stock-->
 	<div class="col-sm-12 filter-change-form">
 		<div class="row filter-change-form-row" ng-if="!addToy && !updateToy">
-
-				<!--<div class="col-sm-12">
-					<div class="input-group">
-						<span class="input-group-addon" ng-model="searchKeyword">Keyword</span>
-						<input
-							type="text"
-							class="form-control">
-					</div>
-				</div>-->
-
-				<div class="col-sm-6">
-					<div class="input-group">
-						<span class="input-group-addon">Min in Stock</span>
-						<select name="minStock" tid="minStock" ng-model="stockInfo.min" class="form-control">
-							<option value="0">0</option>
-							<option value="10">10</option>
-							<option value="20">20</option>
-							<option value="30">30</option>
-						</select>
-					</div>
+			<!--<div class="col-sm-12">
+				<div class="input-group">
+					<span class="input-group-addon" ng-model="searchKeyword">Keyword</span>
+					<input
+						type="text"
+						class="form-control">
 				</div>
-
-				<div class="col-sm-6">
-					<div class="input-group">
-						<span class="input-group-addon">Max in Stock</span>
-						<select name="maxStock" tid="maxStock" ng-model="stockInfo.max" class="form-control">
-							<option value="0">0</option>
-							<option value="10">10</option>
-							<option value="20">20</option>
-							<option value="30">30</option>
-						</select>
-					</div>
+			</div>-->
+			<div class="col-sm-6">
+				<div class="input-group">
+					<span class="input-group-addon">Min in Stock</span>
+					<select name="minStock" tid="minStock" ng-model="stockInfo.min" class="form-control">
+						<option value="0">0</option>
+						<option value="10">10</option>
+						<option value="20">20</option>
+						<option value="30">30</option>
+					</select>
 				</div>
+			</div>
 
+			<div class="col-sm-6">
+				<div class="input-group">
+					<span class="input-group-addon">Max in Stock</span>
+					<select name="maxStock" tid="maxStock" ng-model="stockInfo.max" class="form-control">
+						<option value="0">0</option>
+						<option value="10">10</option>
+						<option value="20">20</option>
+						<option value="30">30</option>
+					</select>
+				</div>
+			</div>
 		</div>
 		<button
 			class="btn btn-primary"
@@ -68,8 +65,8 @@
 			ng-click="addToy = !addToy"
 			ng-show="addToy">Close
 		</button>
-		<div class="add-form" method="POST" ng-if="addToy">
-			
+		<form name="toyForm" method="POST">
+		<div class="add-form" ng-if="addToy">
 			<h3>Add a toy</h3>
 			<div class="row add-form-row">
 				<div class="col-sm-4">
@@ -77,10 +74,10 @@
 						<span class="input-group-addon">Id</span>
 						<input
 							type="text"
-							placeholder="Enter the Id"
+							placeholder={{toyCtrl.toys.length+1}}
 							class="form-control"
 							ng-model="toyCtrl.toy.tid"
-							required="required">
+							readonly="readonly">
 					</div>
 				</div>
 				<div class="col-sm-8">
@@ -93,9 +90,9 @@
 							ng-model="toyCtrl.toy.name"
 							required="required">
 					</div>
-				</div>
+				</div>				
 			</div> <!--End of div class="add-form-row"-->
-			<div class="row add-form-row">	
+			<div class="row add-form-row">
 				<div class="col-sm-8">
 					<div class="input-group">
 						<span class="input-group-addon">Category</span>
@@ -106,7 +103,7 @@
 							ng-model="toyCtrl.toy.category"
 							required="required">
 					</div>
-				</div>
+				</div>			
 				<div class="col-sm-4">
 					<div class="input-group">
 						<span class="input-group-addon">Price</span>
@@ -117,7 +114,7 @@
 							ng-model="toyCtrl.toy.price"
 							required="required">
 					</div>
-				</div>
+				</div>			
 			</div> <!--End of div class="add-form-row"-->
 			<div class="row add-form-row">
 				<div class="col-sm-8">
@@ -131,7 +128,6 @@
 							required="required">
 					</div>
 				</div>
-
 				<div class="col-sm-4">
 					<div class="input-group">
 						<span class="input-group-addon">Number in Stock</span>
@@ -143,14 +139,15 @@
 							required="required">
 					</div>
 				</div>
-
 			</div> <!--End of div class="add-form-row"-->
 			<button
+				type="submit"
 				class="btn btn-primary add-button"
-				ng-click="toyCtrl.addPerson()"
+				ng-click="toyCtrl.addToy()"
 				ng-show="addToy">Add
 			</button>
 		</div> <!--End of div class="add-form"-->
+		</form>
 
 		<!--Begin div class="update-form"-->
 		<div class="update-form" method="POST" ng-show="updateToy">
@@ -230,7 +227,6 @@
 							required="required">
 					</div>
 				</div>
-
 			</div> <!--End of div class="update-form-row"-->
 			<button
 				class="btn btn-primary update-button center-block"
