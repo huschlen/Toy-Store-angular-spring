@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `toy` (
 	`category` varchar(100) NOT NULL,
 	`price` decimal(6,2) NOT NULL,
 	`description` varchar(400) NOT NULL,
-	`stock` varchar(100) NOT NULL,
+	`stock` int(5) NOT NULL,
 	PRIMARY KEY(`tid`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
