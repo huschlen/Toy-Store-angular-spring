@@ -21,7 +21,7 @@
 	<!--Search by the name of a toy-->
 	<!--Filter by the Number in Stock-->
 	<div class="col-sm-12 filter-change-form">
-		<div class="row filter-change-form-row" ng-if="!addToy && !updateToy">
+		<div class="row filter-change-form-row" ng-if="!addToy && !editToy">
 			<!--<div class="col-sm-12">
 				<div class="input-group">
 					<span class="input-group-addon" ng-model="searchKeyword">Keyword</span>
@@ -57,7 +57,7 @@
 		<button
 			class="btn btn-primary"
 			ng-click="addToy = !addToy"
-			ng-show="!addToy && !updateToy">Add Toy
+			ng-show="!addToy && !editToy">Add Toy
 		</button>
 		<button
 			class="btn btn-danger"
@@ -65,10 +65,10 @@
 			ng-show="addToy">Close
 		</button>
 		<form name="toyForm" method="POST">
-		<div class="add-form" ng-if="addToy">
+		<div class="add-form" ng-if="addToy  && !editToy">
 			<h3>Add a toy</h3>
 			<div class="row add-form-row">
-				<div class="col-sm-4">
+				<!--<div class="col-sm-4">
 					<div class="input-group">
 						<span class="input-group-addon">Id</span>
 						<input
@@ -78,8 +78,8 @@
 							ng-model="toyCtrl.toy.tid"
 							readonly="readonly">
 					</div>
-				</div>
-				<div class="col-sm-8">
+				</div>-->
+				<div id="nter-name" class="col-sm-8">
 					<div class="input-group">
 						<span class="input-group-addon">Toy Name</span>
 						<input
@@ -89,7 +89,7 @@
 							ng-model="toyCtrl.toy.name"
 							required="required">
 					</div>
-				</div>				
+				</div>					
 			</div> <!--End of div class="add-form-row"-->
 			<div class="row add-form-row">
 				<div class="col-sm-8">
@@ -102,7 +102,7 @@
 							ng-model="toyCtrl.toy.category"
 							required="required">
 					</div>
-				</div>			
+				</div>					
 				<div class="col-sm-4">
 					<div class="input-group">
 						<span class="input-group-addon">Price</span>
@@ -146,11 +146,9 @@
 				ng-show="addToy">Add
 			</button>
 		</div> <!--End of div class="add-form"-->
-		</form>
 		
 		<!--Begin div class="update-form"-->
-		<form name="toyForm" method="POST">
-		<div class="update-form" ng-show="updateToy">		
+		<div class="update-form" ng-show="editToy">		
 			<h3>Update a toy</h3>
 			<div class="row update-form-row">
 				<div class="col-sm-4">
@@ -229,21 +227,21 @@
 				id="deleteButton"
 				class="btn btn-danger update-button"
 				ng-click="toyCtrl.deleteToy(toyCtrl.toy.tid)"
-				ng-show="updateToy">Delete
+				ng-show="editToy">Delete
 			</button>
 			<button
 				type="button"
 				id="cancelButton"
 				class="btn btn-primary update-button"
 				ng-click="toyCtrl.cancelUpdate()"
-				ng-show="updateToy">Cancel
+				ng-show="editToy">Cancel
 			</button>
 			<button
 				type="button"
 				id="saveButton"			
 				class="btn btn-primary update-button"
 				ng-click="toyCtrl.updateToyDetail()"
-				ng-show="updateToy">Save
+				ng-show="editToy">Save
 			</button>
 		</div> <!--End of div class="update-form"-->
 		<span ng-if="toyCtrl.flag=='created'" class="msg-success">Toy successfully added.</span>

@@ -15,10 +15,13 @@
 	padding: 15px;
 	background-color: #ffffcc;
 }
+#enter-name {
+	float: left;
+}
 #deleteButton, #cancelButton, #saveButton {
 	display:inline-block;
 	float: right;
 }
 .msg-success {
 	color: green;
-} 
+}

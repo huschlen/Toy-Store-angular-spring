@@ -30,6 +30,10 @@ public class ToyDAO implements IToyDAO {
 	public void updateToy(Toy toy) {
 		Toy t = getToyById(toy.getTid());
 		t.setName(toy.getName());
+		t.setCategory(toy.getCategory());
+		t.setPrice(toy.getPrice());
+		t.setDescription(toy.getDescription());
+		t.setStock(toy.getStock());
 		t.setTid(toy.getTid());
 		hibernateTemplate.update(t);
 	}
