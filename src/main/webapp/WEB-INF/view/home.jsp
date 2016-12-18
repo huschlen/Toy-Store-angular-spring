@@ -14,8 +14,7 @@
 				<a class="navbar-brand" href="#">Inventory</a>
 			</div>
 		</div>
-	</nav>
-	
+	</nav>	
 	
 	<div class="container">
 
@@ -148,10 +147,10 @@
 			</button>
 		</div> <!--End of div class="add-form"-->
 		</form>
-
+		
 		<!--Begin div class="update-form"-->
-		<div class="update-form" method="POST" ng-show="updateToy">
-			
+		<form name="toyForm" method="POST">
+		<div class="update-form" ng-show="updateToy">		
 			<h3>Update a toy</h3>
 			<div class="row update-form-row">
 				<div class="col-sm-4">
@@ -162,7 +161,7 @@
 							placeholder="Id"
 							class="form-control"
 							ng-model="toyCtrl.toy.tid"
-							required="required">
+							readonly="readonly">
 					</div>
 				</div>
 				<div class="col-sm-8">
@@ -200,7 +199,6 @@
 								required="required">
 					</div>
 				</div>
-
 			</div> <!--End of div class="update-form-row"-->
 			<div class="row update-form-row">
 				<div class="col-sm-8">
@@ -214,8 +212,6 @@
 							required="required">
 					</div>
 				</div>
-
-
 				<div class="col-sm-4">
 					<div class="input-group">
 						<span class="input-group-addon">Number in Stock</span>
@@ -229,21 +225,36 @@
 				</div>
 			</div> <!--End of div class="update-form-row"-->
 			<button
-				class="btn btn-primary update-button center-block"
-				ng-click="updateToyDetail()"
-				ng-show="updateToy">Save
-			</button>
-			<button
-				class="btn btn-danger update-button center-block"
+				type="button"
+				id="deleteButton"
+				class="btn btn-danger update-button"
 				ng-click="toyCtrl.deleteToy(toyCtrl.toy.tid)"
 				ng-show="updateToy">Delete
 			</button>
-		</div> <!--End of div class="update-form"-->	
+			<button
+				type="button"
+				id="cancelButton"
+				class="btn btn-primary update-button"
+				ng-click="toyCtrl.cancelUpdate()"
+				ng-show="updateToy">Cancel
+			</button>
+			<button
+				type="button"
+				id="saveButton"			
+				class="btn btn-primary update-button"
+				ng-click="toyCtrl.updateToyDetail()"
+				ng-show="updateToy">Save
+			</button>
+		</div> <!--End of div class="update-form"-->
+		<span ng-if="toyCtrl.flag=='created'" class="msg-success">Toy successfully added.</span>
+		<span ng-if="toyCtrl.flag=='deleted'" class="msg-success">Toy successfully deleted.</span>
+		</form>
 	</div> <!--End of div class="filter-change-form"-->
 </div> <!--End of dev class="container"-->
 
 <!--Inventory Listings-->
 <div class="container">
+	<form name="toyForm" method="POST">
 	<div class="table-bordered toy-list" ng-repeat="toy in toyCtrl.toys | ngStockFilter:stockInfo">
 		<p><strong>Id: </strong>{{toy.tid}}</p>
 		<p><strong>Toy Name: </strong>{{toy.name}}</p>
@@ -251,11 +262,9 @@
 		<p><strong>Price: </strong>{{toy.price | currency}}</p>
 		<p><strong>Description: </strong>{{toy.description}}</p>
 		<p><strong>In Stock: </strong>{{toy.stock}}</p>
-		<button
-			class="btn btn-xs btn-primary"
-			ng-click="toyCtrl.editToy(toy.tid)">Edit
-		</button>
+		<input type="button" class="btn btn-xs btn-primary" ng-click="toyCtrl.editToy(toy.tid)" value="Edit"/>
 	</div>
+	</form>
 </div>
 	
 </body>
