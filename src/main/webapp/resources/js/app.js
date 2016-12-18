@@ -20,6 +20,10 @@ app.controller('ToyController', ['$scope', 'Toy', function($scope, Toy) {
         ob.toys = Toy.query();   
     };
     ob.fetchAllToys();
+    /*ob.nextTid = function() {
+    	$scope.addToy = !$scope.addToy;
+    	ob.toy.tid = ob.toys[ob.toys.length-1].tid + 1;
+    };*/
     ob.addToy = function(){
 		console.log('Inside save');
 		if($scope.toyForm.$valid) {
@@ -38,21 +42,19 @@ app.controller('ToyController', ['$scope', 'Toy', function($scope, Toy) {
     ob.editToy = function(id) {
     	$scope.updateToy = true;
 	    console.log('Inside edit');
-        console.log(Toy.get({ toyId:id }, function() {
-            ob.flag = 'edit'; 
-        }));
-        $scope.toy = Toy.get({ toyId:id }, function() {
-        	ob.flag = 'edit'; 
+        ob.toy = Toy.get({ toyId:id }, function() {
+        	ob.flag = 'edit';
         });
     };    
     ob.updateToyDetail = function() {
-    	console.log('Inside update');
+    	console.log('Inside update');		
     	if($scope.toyForm.$valid) {
 		ob.toy.$updateToy(function(toy) {
         	console.log(toy); 
     		ob.updatedId = toy.tid;
     		ob.reset();
-    		ob.flag = 'updated'; 
+    		ob.flag = 'updated';
+    		$scope.updateToy = false;
     		ob.fetchAllToys();
            });
 	    }
@@ -62,6 +64,7 @@ app.controller('ToyController', ['$scope', 'Toy', function($scope, Toy) {
 	    ob.toy = Toy.delete({ toyId:id }, function() {
     		ob.reset();  
     		ob.flag = 'deleted';
+    		$scope.updateToy = false;
     		ob.fetchAllToys(); 
 	    });
     };		
@@ -70,8 +73,9 @@ app.controller('ToyController', ['$scope', 'Toy', function($scope, Toy) {
         $scope.toyForm.$setPristine();
     };	
     ob.cancelUpdate = function(id) {
+    	$scope.updateToy = false;
 	    ob.toy = new Toy();
-	    ob.flag= '';	
+	    ob.flag= '';
    	    ob.fetchAllToys();
     };
 
