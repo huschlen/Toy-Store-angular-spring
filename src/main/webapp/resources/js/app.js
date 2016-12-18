@@ -20,6 +20,15 @@ app.controller('ToyController', ['$scope', '$window', 'Toy', function($scope, $w
         ob.toys = Toy.query();   
     };
     ob.fetchAllToys();
+    ob.clearKeywordFilter = function() {
+    	ob.fetchAllToys();
+    };
+    ob.clearStockFilter = function() {
+    	$scope.stockInfo = {
+    	    	min: 0,
+    	        max: 1000
+    	}
+    };
     ob.addToy = function(){
 		console.log('Inside save');
 		if($scope.toyForm.$valid && ob.toy.stock >= 0 && ob.toy.stock <=30) {
@@ -47,7 +56,7 @@ app.controller('ToyController', ['$scope', '$window', 'Toy', function($scope, $w
     };    
     ob.updateToyDetail = function() {
     	console.log('Inside update');		
-    	if($scope.toyForm.$valid) {
+    	if($scope.toyForm.$valid  && ob.toy.stock >= 0 && ob.toy.stock <=30) {
 		ob.toy.$updateToy(function(toy) {
         	console.log(toy); 
     		ob.updatedId = toy.tid;

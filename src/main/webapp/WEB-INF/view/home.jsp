@@ -22,15 +22,25 @@
 	<!--Filter by the Number in Stock-->
 	<div class="col-sm-12 filter-change-form">
 		<div class="row filter-change-form-row" ng-if="!addToy && !editToy">
-			<!--<div class="col-sm-12">
+			<div class="col-sm-10">
 				<div class="input-group">
-					<span class="input-group-addon" ng-model="searchKeyword">Keyword</span>
+					<span class="input-group-addon">Keyword</span>
 					<input
 						type="text"
+						ng-model="searchKeyword"
 						class="form-control">
 				</div>
-			</div>-->
-			<div class="col-sm-6">
+			</div>
+			<div class="col-sm-2">
+				<div class="input-group">
+					<button
+						type="button"
+						class="btn btn-primary"
+						ng-click="toyCtrl.clearKeywordFilter()">Clear Filter
+					</button>
+				</div>
+			</div>
+			<div class="col-sm-5">
 				<div class="input-group">
 					<span class="input-group-addon">Min in Stock</span>
 					<select name="minStock" tid="minStock" ng-model="stockInfo.min" class="form-control">
@@ -41,8 +51,7 @@
 					</select>
 				</div>
 			</div>
-
-			<div class="col-sm-6">
+			<div class="col-sm-5">
 				<div class="input-group">
 					<span class="input-group-addon">Max in Stock</span>
 					<select name="maxStock" tid="maxStock" ng-model="stockInfo.max" class="form-control">
@@ -51,6 +60,15 @@
 						<option value="20">20</option>
 						<option value="30">30</option>
 					</select>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="input-group">
+					<button
+						type="button"
+						class="btn btn-primary"
+						ng-click="toyCtrl.clearStockFilter()">Clear Filter
+					</button>
 				</div>
 			</div>
 		</div>
@@ -260,7 +278,7 @@
 <!--Inventory Listings-->
 <div class="container">
 	<form name="toyForm" method="POST">
-	<div class="table-bordered toy-list" ng-repeat="toy in toyCtrl.toys | ngStockFilter:stockInfo">
+	<div class="table-bordered toy-list" ng-repeat="toy in toyCtrl.toys | ngStockFilter:stockInfo | ngKeywordFilter:searchKeyword">
 		<p><strong>Id: </strong>{{toy.tid}}</p>
 		<p><strong>Toy Name: </strong>{{toy.name}}</p>
 		<p><strong>Category: </strong>{{toy.category}}</p>
@@ -279,5 +297,5 @@
 <script src="${pageContext.request.contextPath}/app-resources/js/app.js"></script>
 <!--<script src="${pageContext.request.contextPath}/app-resources/js/controllers/ngInventoryController.js"></script>-->
 <script src="${pageContext.request.contextPath}/app-resources/js/filters/ngStockFilter.js"></script>
-<!--<script src="${pageContext.request.contextPath}/app-resources/js/filters/keywordFilter.js"></script>-->
+<script src="${pageContext.request.contextPath}/app-resources/js/filters/keywordFilter.js"></script>
 </html>

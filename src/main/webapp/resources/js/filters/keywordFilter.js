@@ -1,17 +1,14 @@
 angular
 	.module('ngInventory')
-	.filter('keywordFilter', function() {
-
+	.filter('ngKeywordFilter', function() {
 		return function(listings, searchKeyword) {
-
-			var filtered = [];
-
-
-			angular.forEach(listings, function(searchKeyword) {
-				if(searchKeyword.lindexOf(isting.name) > -1) {			
-					filtered.push(listing);
+			var keywordFiltered = [];
+			var keyword = new RegExp(searchKeyword, 'i');
+			angular.forEach(listings, function(listing) {
+				if(keyword.test(listing.name)) {			
+					keywordFiltered.push(listing);
 				}
 			});
-				return filtered;
+			return keywordFiltered;
 		}
 	});
