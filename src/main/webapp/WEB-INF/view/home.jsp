@@ -55,11 +55,13 @@
 			</div>
 		</div>
 		<button
+			type="button"
 			class="btn btn-primary"
 			ng-click="addToy = !addToy"
 			ng-show="!addToy && !editToy">Add Toy
 		</button>
 		<button
+			type="button"
 			class="btn btn-danger"
 			ng-click="addToy = !addToy"
 			ng-show="addToy">Close
@@ -131,7 +133,9 @@
 					<div class="input-group">
 						<span class="input-group-addon">Number in Stock</span>
 						<input
-							type="text"
+							type="number"
+							min="0"
+							max="30"
 							placeholder="Enter the # in Stock"
 							class="form-control"
 							ng-model="toyCtrl.toy.stock"
@@ -214,7 +218,9 @@
 					<div class="input-group">
 						<span class="input-group-addon">Number in Stock</span>
 						<input
-							type="text"
+							type="number"
+							min="0"
+							max="30"
 							placeholder="Number in Stock"
 							class="form-control"
 							ng-model="toyCtrl.toy.stock"
@@ -245,6 +251,7 @@
 			</button>
 		</div> <!--End of div class="update-form"-->
 		<span ng-if="toyCtrl.flag=='created'" class="msg-success">Toy successfully added.</span>
+		<span ng-if="toyCtrl.flag=='updated'" class="msg-success">Toy successfully updated.</span>
 		<span ng-if="toyCtrl.flag=='deleted'" class="msg-success">Toy successfully deleted.</span>
 		</form>
 	</div> <!--End of div class="filter-change-form"-->

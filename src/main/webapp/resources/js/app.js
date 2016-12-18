@@ -8,7 +8,7 @@ app.factory('Toy', ['$resource', function ($resource) {
     );
 }]);
 
-app.controller('ToyController', ['$scope', 'Toy', function($scope, Toy) {
+app.controller('ToyController', ['$scope', '$window', 'Toy', function($scope, $window, Toy) {
     var ob = this;
     ob.toys=[];
     ob.toy = new Toy();
@@ -20,13 +20,9 @@ app.controller('ToyController', ['$scope', 'Toy', function($scope, Toy) {
         ob.toys = Toy.query();   
     };
     ob.fetchAllToys();
-    /*ob.nextTid = function() {
-    	$scope.addToy = !$scope.addToy;
-    	ob.toy.tid = ob.toys[ob.toys.length-1].tid + 1;
-    };*/
     ob.addToy = function(){
 		console.log('Inside save');
-		if($scope.toyForm.$valid) {
+		if($scope.toyForm.$valid && ob.toy.stock >= 0 && ob.toy.stock <=30) {
 			ob.toy.$save(function(toy) {
 		    console.log(toy); 
 		    ob.flag = 'created';
@@ -45,7 +41,9 @@ app.controller('ToyController', ['$scope', 'Toy', function($scope, Toy) {
 	    console.log('Inside edit');
         ob.toy = Toy.get({ toyId:id }, function() {
         	ob.flag = 'edit';
+        	$window.scrollTo(0, 0);
         });
+        
     };    
     ob.updateToyDetail = function() {
     	console.log('Inside update');		
