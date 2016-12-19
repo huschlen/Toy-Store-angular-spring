@@ -24,10 +24,11 @@
 		<div class="row filter-change-form-row" ng-if="!addToy && !editToy">
 			<div class="col-sm-10">
 				<div class="input-group">
-					<span class="input-group-addon">Keyword</span>
+					<span class="input-group-addon">Keywords</span>
 					<input
 						type="text"
-						ng-model="searchKeyword"
+						placeholder="Enter keywords"
+						ng-model="keywordSearch.text"
 						class="form-control">
 				</div>
 			</div>
@@ -88,17 +89,6 @@
 		<div class="add-form" ng-if="addToy  && !editToy">
 			<h3>Add a toy</h3>
 			<div class="row add-form-row">
-				<!--<div class="col-sm-4">
-					<div class="input-group">
-						<span class="input-group-addon">Id</span>
-						<input
-							type="text"
-							placeholder={{toyCtrl.toys.length+1}}
-							class="form-control"
-							ng-model="toyCtrl.toy.tid"
-							readonly="readonly">
-					</div>
-				</div>-->
 				<div id="nter-name" class="col-sm-8">
 					<div class="input-group">
 						<span class="input-group-addon">Toy Name</span>
@@ -278,7 +268,7 @@
 <!--Inventory Listings-->
 <div class="container">
 	<form name="toyForm" method="POST">
-	<div class="table-bordered toy-list" ng-repeat="toy in toyCtrl.toys | ngStockFilter:stockInfo | ngKeywordFilter:searchKeyword">
+	<div class="table-bordered toy-list" ng-repeat="toy in toyCtrl.toys | ngStockFilter:stockInfo | ngKeywordFilter:keywordSearch">
 		<p><strong>Id: </strong>{{toy.tid}}</p>
 		<p><strong>Toy Name: </strong>{{toy.name}}</p>
 		<p><strong>Category: </strong>{{toy.category}}</p>

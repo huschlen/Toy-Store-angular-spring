@@ -5,6 +5,7 @@ angular
 			var filtered = [];
 			var min = stockInfo.min;
 			var max = stockInfo.max;
+			console.log("min: "+min);
 			angular.forEach(listings, function(listing) {
 				if(listing.stock >= min && listing.stock <= max) {		
 					filtered.push(listing);

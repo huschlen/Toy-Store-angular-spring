@@ -12,16 +12,19 @@ app.controller('ToyController', ['$scope', '$window', 'Toy', function($scope, $w
     var ob = this;
     ob.toys=[];
     ob.toy = new Toy();
+    $scope.keywordSearch = {
+    	text: /^[\w&.\-]*$/
+    };
     $scope.stockInfo = {
     	min: 0,
         max: 1000
-    }
+    };
     ob.fetchAllToys = function(){    	
         ob.toys = Toy.query();   
     };
     ob.fetchAllToys();
     ob.clearKeywordFilter = function() {
-    	ob.fetchAllToys();
+    	$scope.keywordSearch = /^[a-zA-Z0-9]+$/;
     };
     ob.clearStockFilter = function() {
     	$scope.stockInfo = {
