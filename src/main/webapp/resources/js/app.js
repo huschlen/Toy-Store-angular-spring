@@ -13,7 +13,7 @@ app.controller('ToyController', ['$scope', '$window', 'Toy', function($scope, $w
     ob.toys=[];
     ob.toy = new Toy();
     $scope.keywordSearch = {
-    	text: /^[\w&.\-]*$/
+    	text: ""
     };
     $scope.stockInfo = {
     	min: 0,
@@ -24,12 +24,14 @@ app.controller('ToyController', ['$scope', '$window', 'Toy', function($scope, $w
     };
     ob.fetchAllToys();
     ob.clearKeywordFilter = function() {
-    	$scope.keywordSearch = /^[a-zA-Z0-9]+$/;
+    	$scope.keywordSearch = {
+    		text: ""
+    	}
     };
     ob.clearStockFilter = function() {
     	$scope.stockInfo = {
-    	    	min: 0,
-    	        max: 1000
+    	    min: 0,
+    	    max: 1000
     	}
     };
     ob.addToy = function(){
