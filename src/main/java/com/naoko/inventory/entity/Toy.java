@@ -77,5 +77,20 @@ public class Toy implements Serializable{
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
+	@Override
+	public boolean equals(Object o) {
+	    if(o == null) {
+	    	return false;
+	    }
+	    if(!(o instanceof Toy)) {
+	    	return false;
+	    }
+	    Toy other = (Toy) o;
+	    return this.tid == other.tid;
+	}
+	@Override
+	public int hashCode(){
+	    return (int) tid;
+	}
 
 }

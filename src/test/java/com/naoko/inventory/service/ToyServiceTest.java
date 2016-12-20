@@ -20,6 +20,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 
 //@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(loader=AnnotationConfigContextLoader.class)
 public class ToyServiceTest {
 	
 	private static IToyService toyService = Mockito.mock(IToyService.class);
