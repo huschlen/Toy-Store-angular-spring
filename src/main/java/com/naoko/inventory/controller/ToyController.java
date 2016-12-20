@@ -23,32 +23,32 @@ public class ToyController {
 	public String home() {
  		return "home";
  	}
-	@RequestMapping(value="/toy/{id}", method = RequestMethod.GET )
+	@RequestMapping(value="/toys/{id}", method = RequestMethod.GET )
 	public ResponseEntity<Toy> getToyById(@PathVariable("id") Integer id) {
 		Toy toy = toyService.getToyById(id);
 		return new ResponseEntity<Toy>(toy, HttpStatus.OK);
 	}
-	@RequestMapping(value= "/toy", method = RequestMethod.GET)
+	@RequestMapping(value= "/toys", method = RequestMethod.GET)
 	public ResponseEntity<List<Toy>> getAllToys() {
 		List<Toy> list = toyService.getAllToys();
 		return new ResponseEntity<List<Toy>>(list, HttpStatus.OK);
 	}
-	@RequestMapping(value= "/toy", method = RequestMethod.POST)
+	@RequestMapping(value= "/toys", method = RequestMethod.POST)
 	public ResponseEntity<Void> toyService(@RequestBody Toy toy, UriComponentsBuilder builder) {
         boolean flag = toyService.addToy(toy);
     	if (flag == false) {
     		new ResponseEntity<Void>(HttpStatus.CONFLICT);
         }
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(builder.path("/toy/{id}").buildAndExpand(toy.getTid()).toUri());
+        headers.setLocation(builder.path("/toys/{id}").buildAndExpand(toy.getTid()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	}	
-	@RequestMapping(value="/toy/{id}", method = RequestMethod.PUT )
+	@RequestMapping(value="/toys/{id}", method = RequestMethod.PUT )
 	public ResponseEntity<Toy> updateToy(@RequestBody Toy toy) {
 		toyService.updateToy(toy);
 		return new ResponseEntity<Toy>(toy, HttpStatus.OK);
 	}	
-	@RequestMapping(value="/toy/{id}", method = RequestMethod.DELETE )
+	@RequestMapping(value="/toys/{id}", method = RequestMethod.DELETE )
 	public ResponseEntity<Void> deleteToy(@PathVariable("id") Integer id) {
 		toyService.deleteToy(id);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);

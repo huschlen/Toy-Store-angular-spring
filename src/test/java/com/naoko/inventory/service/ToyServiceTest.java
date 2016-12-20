@@ -5,50 +5,56 @@ import com.naoko.inventory.entity.Toy;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-/*******
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import org.junit.ClassRule;
+//import org.junit.ClassRule;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mockito;
-*******/
 
-/*******
-public class ToyServiceTest implements IToyService {
-	private static IToyService toyDao = Mockito.mock(IToyService.class);
-	@Test
-	public Toy testGetToyById(int tid) {
-		Toy obj = toyDAO.getToyById(tid);
-		return obj;
-	}	
-	@Test
-	public List<Toy> testGetAllToys(){
-		return toyDAO.getAllToys();
+//@RunWith(SpringJUnit4ClassRunner.class)
+public class ToyServiceTest {
+	
+	private static IToyService toyService = Mockito.mock(IToyService.class);
+	/*@Test
+	public void testGetToyById(int tid) {
+		Toy toy = new Toy();
+		toy.setId(1);
+		Mockito.when(toyService.getToyById(1)).thenReturn(Optional.of(toy));
+		
+		Response response = RULE
+				.getJerseyTest()
+				.target("/angular-spring-1/toy-store/toys")
+				.path("1")
+				.request(MediaType.APPLICATION_JSON)
+				.get();
+		assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
+		Toy returnedToy = response.readEntity(Toy.class);
+		assertEquals(toy, returnedToy);
+	}*/
+	//@Test
+	public void testGetAllToys(){
+		toyService.getAllToys();
 	}
-	@Test
-	public synchronized boolean testAddToy(Toy toy){
-		if (toyDAO.toyExists(toy.getName(), toy.getTid())) {
-			return false;
-		} else {
-			toyDAO.addToy(toy);
-			return true;
-		}
+	//@Test
+	public void testAddToy(Toy toy){
+		toyService.addToy(toy);
 	}
-	@Test
+	//@Test
 	public void testUpdateToy(Toy toy) {
-		toyDAO.updateToy(toy);
+		toyService.updateToy(toy);
 	}
-	@Test
+	//@Test
 	public void testDeleteToy(int tid) {
-		toyDAO.deleteToy(tid);
+		toyService.deleteToy(tid);
 	}
 
 }
-*******/
+
