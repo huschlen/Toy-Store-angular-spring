@@ -24,8 +24,13 @@ $RECYCLE.BIN/
 .project
 .settings
 
-#temporay MANIFEST.MF
+# Temporay MANIFEST.MF
 build/tmp/war/MANIFEST.MF
+
+# Junit test reports and test results
+build/reports/
+build/test-results
+build/tmp/test
 
 # Windows shortcuts
 *.lnk
