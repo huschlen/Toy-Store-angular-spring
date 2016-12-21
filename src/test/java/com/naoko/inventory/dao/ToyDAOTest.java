@@ -34,35 +34,28 @@ public class ToyDAOTest {
 	}
 	
 	@Test
-	public Toy getToyById(int tid) {
-		return hibernateTemplate.get(Toy.class, tid);
+	public Toy testGetToyById() {
+		
 	} 
 	@Test
 	public List<Toy> testGetAllToys() {
-		String hql = "FROM Toy as t ORDER BY t.tid";
-		return (List<Toy>) hibernateTemplate.find(hql);
+		
 	}	
 	@Test
-	public boolean testAddToy(Toy toy) {
-		hibernateTemplate.save(toy);
-		return false;
+	public boolean testAddToy() {
+		
 	}
 	@Test
-	public void testUpdateToy(Toy toy) {
-		Toy t = getToyById(toy.getTid());
-		t.setName(toy.getName());
-		t.setTid(toy.getTid());
-		hibernateTemplate.update(t);
+	public void testUpdateToy() {
+
 	}
 	@Test
-	public void testDeleteToy(int tid) {
-		hibernateTemplate.delete(getToyById(tid));
+	public void testDeleteToy() {
+		
 	}
 	@Test
-	public boolean testToyExists(String name, int tid) {
-		String hql = "FROM Toy as t WHERE t.name = ? and t.id = ?";
-		List<Toy> toys = (List<Toy>) hibernateTemplate.find(hql, name, tid);
-		return toys.size() > 0 ? true : false;
+	public boolean testToyExists() {
+		
 	}
 }
 *******/

@@ -19,5 +19,6 @@ dependencies {
     compile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
     compile group: 'org.springframework', name: 'spring-test', version: '4.3.4.RELEASE'
     testCompile 'junit:junit:4.5'
+    testCompile 'org.springframework.boot:spring-boot-starter-test:1.4.1.RELEASE'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat:1.4.2.RELEASE'
 }
