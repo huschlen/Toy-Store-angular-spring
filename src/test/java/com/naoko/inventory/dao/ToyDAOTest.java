@@ -1,6 +1,10 @@
 package com.naoko.inventory.dao;
 
+import java.util.ArrayList;
+import java.util.List;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNull;
 import javax.transaction.Transactional;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,10 +41,9 @@ public class ToyDAOTest {
 		Toy toyRetrieved = toyDAO.getToyById(1000);
 		assertEquals(toy, toyRetrieved);
 		assertEquals(toy.getName(), toyRetrieved.getName());
-		assertEquals(toy.getCategory(), toyRetrieved.getCategory());
-		
+		assertEquals(toy.getCategory(), toyRetrieved.getCategory());	
 	}
-	/*@Test
+	@Test
 	public void testGetAllToys() {
 		List<Toy> toys = new ArrayList<>();
 		Toy toy1 = new Toy();
@@ -57,14 +60,22 @@ public class ToyDAOTest {
 		toy2.setPrice(50);
 		toy2.setDescription("Super fun");
 		toy2.setStock(3);
+		toys.add(toy1);
+		toys.add(toy2);
 		hibernateTemplate.save(toy1);
 		hibernateTemplate.save(toy2);
 		List<Toy> toysRetrieved = toyDAO.getAllToys();
-		assertEquals(toysRetrieved.size(), 2);
-		for (Toy toy: toysRetrieved) {
-			assertEquals();
+		for(Toy toy : toys){
+			boolean foundToy = false;
+			for(Toy returnedToy : toysRetrieved){
+				if(toy.equals(returnedToy)){
+					foundToy = true;
+					continue;
+				}
+			}
+			assertTrue(foundToy);
 		}
-	}*/
+	}
 	@Test
 	public void testAddToy() {
 		Toy toy = new Toy();
@@ -79,26 +90,52 @@ public class ToyDAOTest {
 		assertEquals(toy.getName(), toyAdded.getName());
 		assertEquals(toy.getCategory(), toyAdded.getCategory());
 	}
-}
-
-/*******
-public class ToyDAOTest {
-
-	
-	
-	
-	
 	@Test
 	public void testUpdateToy() {
-
+		Toy toy = new Toy();
+		toy.setTid(1001);
+		toy.setName("Toy1");
+		toy.setCategory("Game");
+		toy.setPrice(20);
+		toy.setDescription("Super fun");
+		toy.setStock(5);
+		hibernateTemplate.save(toy);
+		Toy existingToy = hibernateTemplate.get(Toy.class, 1001);
+		existingToy.setName("Toy2");
+		existingToy.setCategory("Game");
+		existingToy.setPrice(50);
+		existingToy.setDescription("Super fun");
+		existingToy.setStock(3);
+		toyDAO.updateToy(existingToy);
+		Toy updatedToy = hibernateTemplate.get(Toy.class, 1001);
+		assertEquals("Toy2", updatedToy.getName());
 	}
 	@Test
 	public void testDeleteToy() {
-		
+		Toy toy = new Toy();
+		toy.setTid(1001);
+		toy.setName("Toy1");
+		toy.setCategory("Game");
+		toy.setPrice(20);
+		toy.setDescription("Super fun");
+		toy.setStock(5);
+		hibernateTemplate.save(toy);
+		toyDAO.deleteToy(1001);
+		Toy deletedToy = hibernateTemplate.get(Toy.class, 1001);
+		assertNull(deletedToy);
 	}
 	@Test
-	public boolean testToyExists() {
-		
+	public void testToyExists() {
+		Toy toy = new Toy();
+		toy.setTid(1001);
+		toy.setName("Toy1");
+		toy.setCategory("Game");
+		toy.setPrice(20);
+		toy.setDescription("Super fun");
+		toy.setStock(5);
+		hibernateTemplate.save(toy);
+		boolean toyExists = toyDAO.toyExists(toy.getName(), toy.getTid());
+		assertTrue(toyExists);
 	}
+
 }
-*******/

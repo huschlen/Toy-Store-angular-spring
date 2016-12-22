@@ -44,7 +44,7 @@ public class ToyDAO implements IToyDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean toyExists(String name, int tid) {
-		String hql = "FROM Toy as t WHERE t.name = ? and t.id = ?";
+		String hql = "FROM Toy as t WHERE t.name = ? and t.tid = ?";
 		List<Toy> toys = (List<Toy>) hibernateTemplate.find(hql, name, tid);
 		return toys.size() > 0 ? true : false;
 	}
