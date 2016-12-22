@@ -19,7 +19,7 @@ import com.naoko.inventory.entity.Toy;
 @EnableTransactionManagement
 public class TestDAOConfig {  
 	@Bean  
-    public IToyDAO personDao() {  
+    public IToyDAO toyDao() {  
         return new ToyDAO();  
     }
 	@Bean
