@@ -1,4 +1,4 @@
-USE `inventory`
+USE `toystore`;
 CREATE TABLE IF NOT EXISTS `toy` (
 	`tid` int(5) NOT NULL AUTO_INCREMENT,
 	`name` varchar(100) NOT NULL,

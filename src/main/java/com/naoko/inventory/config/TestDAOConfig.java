@@ -36,7 +36,7 @@ public class TestDAOConfig {
 	public DataSource getDataSource() {
 	    BasicDataSource dataSource = new BasicDataSource();
 	    dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/inventory");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/toystore");
         dataSource.setUsername("root");
         dataSource.setPassword("");
 	 
