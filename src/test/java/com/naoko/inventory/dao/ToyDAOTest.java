@@ -24,18 +24,21 @@ public class ToyDAOTest {
 	private IToyDAO toyDAO;
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;
-	  
+	@Test
+	public void testGetToyById() {
+		
+	} 
 	@Test
 	public void testAddToy() {
 		Toy toy = new Toy();
-		toy.setTid(100);
+		toy.setTid(1000);
 		toy.setName("Toy Added");
 		toy.setCategory("Doll");
 		toy.setPrice(50);
 		toy.setDescription("Super cute");
 		toy.setStock(1);
 		toyDAO.addToy(toy);
-		Toy toyAdded = hibernateTemplate.get(Toy.class, 100);
+		Toy toyAdded = hibernateTemplate.get(Toy.class, 1000);
 		assertEquals(toy.getName(), toyAdded.getName());
 		assertEquals(toy.getCategory(), toyAdded.getCategory());
 	}
@@ -45,18 +48,12 @@ public class ToyDAOTest {
 public class ToyDAOTest {
 
 	
-	@Test
-	public Toy testGetToyById() {
-		
-	} 
+	
 	@Test
 	public List<Toy> testGetAllToys() {
 		
 	}	
-	@Test
-	public boolean testAddToy() {
-		
-	}
+	
 	@Test
 	public void testUpdateToy() {
 
