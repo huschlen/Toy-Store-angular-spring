@@ -117,7 +117,7 @@
 					<div class="input-group">
 						<span class="input-group-addon">Price</span>
 						<input
-							type="text"
+							type="number"
 							placeholder="Enter the Price"
 							class="form-control"
 							ng-model="toyCtrl.toy.price"
@@ -202,7 +202,7 @@
 						<div class="input-group">
 							<span class="input-group-addon">Price</span>
 							<input
-								type="text"
+								type="number"
 								placeholder="Price"
 								class="form-control"
 								ng-model="toyCtrl.toy.price"
