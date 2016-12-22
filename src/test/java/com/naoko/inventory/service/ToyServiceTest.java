@@ -23,7 +23,6 @@ public class ToyServiceTest {
 	@Mock
     private IToyDAO toyDAO;;
 	
-	
 	@Test
 	public void testGetToyById() {
 		Toy toy = new Toy();

@@ -1,37 +1,49 @@
 package com.naoko.inventory.dao;
 
-import java.util.List;
+import static org.junit.Assert.assertEquals;
 import javax.transaction.Transactional;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
-import org.springframework.stereotype.Repository;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.annotation.*;
+
+import com.naoko.inventory.config.TestDAOConfig;
+import com.naoko.inventory.dao.IToyDAO;
 import com.naoko.inventory.entity.Toy;
-/*******
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import java.util.ArrayList;
-import java.util.concurrent.Executors;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.ArgumentCaptor;
-import com.codahale.metrics.MetricRegistry;
-import com.codahale.metrics.health.HealthCheckRegistry;
-*******/
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = TestDAOConfig.class)
+@Rollback
+@Transactional
+public class ToyDAOTest {
+	
+	@Autowired
+	private IToyDAO toyDAO;
+	@Autowired
+	private HibernateTemplate  hibernateTemplate;
+	  
+	@Test
+	public void testAddToy() {
+		Toy toy = new Toy();
+		toy.setTid(100);
+		toy.setName("Toy Added");
+		toy.setCategory("Doll");
+		toy.setPrice(50);
+		toy.setDescription("Super cute");
+		toy.setStock(1);
+		toyDAO.addToy(toy);
+		Toy toyAdded = hibernateTemplate.get(Toy.class, 100);
+		assertEquals(toy.getName(), toyAdded.getName());
+		assertEquals(toy.getCategory(), toyAdded.getCategory());
+	}
+}
 
 /*******
 public class ToyDAOTest {
-	
-	@Before
-	public void setUp() throws Exception {
-		
-	}
-	
-	@After
-	public void tearDown() throws Exception {
-		
-	}
+
 	
 	@Test
 	public Toy testGetToyById() {
