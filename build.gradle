@@ -17,8 +17,14 @@ dependencies {
     compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
     compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.0'
     compile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
-    compile group: 'org.springframework', name: 'spring-test', version: '4.3.4.RELEASE'
     testCompile 'junit:junit:4.5'
     testCompile 'org.springframework.boot:spring-boot-starter-test:1.4.1.RELEASE'
+    testCompile group: 'org.springframework', name: 'spring-test', version: '4.3.3.RELEASE'
+    testCompile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.3.RELEASE'
+    testCompile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+
+    
+    
+    
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat:1.4.2.RELEASE'
 }
