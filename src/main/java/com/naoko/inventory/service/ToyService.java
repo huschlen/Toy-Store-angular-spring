@@ -11,6 +11,10 @@ public class ToyService implements IToyService {
 	@Autowired
 	private IToyDAO toyDAO;
 	@Override
+	public void setToyDAO(IToyDAO dao) {
+		this.toyDAO = dao;
+	}
+	@Override
 	public Toy getToyById(int tid) {
 		Toy obj = toyDAO.getToyById(tid);
 		return obj;
