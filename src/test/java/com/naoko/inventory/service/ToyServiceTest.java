@@ -37,7 +37,7 @@ import org.mockito.*;
  *
  */
 
-public class ToyServiceTest2 {
+public class ToyServiceTest {
 	
     @Mock
     private IToyService toyService;
