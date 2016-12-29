@@ -58,7 +58,7 @@ public class ToyServiceTest {
 		toy.setCategory("Doll");
 		toy.setPrice(100);
 		toy.setDescription("Super cute");
-		toy.setStock(2);		
+		toy.setStock(2);
 		// expected toy
 		Mockito.when(toyDAO.getToyById(1)).thenReturn(toy);
 		// check the value

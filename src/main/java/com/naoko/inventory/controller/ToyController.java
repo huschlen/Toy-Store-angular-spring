@@ -14,16 +14,28 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.naoko.inventory.service.IToyService;
 import com.naoko.inventory.entity.Toy;
 
+/**
+ * Maps http requests.
+ * 
+ * @author	Naoko Huschle
+ * @since	2016-12-20
+ *
+ */
+
 @Controller
 @RequestMapping("/toy-store")
 public class ToyController {
 	@Autowired
 	private IToyService toyService;
+	
+	public void setToyService(IToyService service) {
+		this.toyService = service;
+	}
 	@RequestMapping("/home")
 	public String home() {
  		return "home";
  	}
-	@RequestMapping(value="/toys/{id}", method = RequestMethod.GET )
+	@RequestMapping(value="/toys/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Toy> getToyById(@PathVariable("id") Integer id) {
 		Toy toy = toyService.getToyById(id);
 		return new ResponseEntity<Toy>(toy, HttpStatus.OK);
