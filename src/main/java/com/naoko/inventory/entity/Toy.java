@@ -8,9 +8,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Entity Toy.
+ * 
+ * @author	Naoko Huschle
+ * @since	2016-12-20
+ *
+ */
+
 @Entity
 @Table(name="toy")
-
 public class Toy implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -18,11 +25,11 @@ public class Toy implements Serializable{
 	@Id
 	//@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="tid")
-    private int tid;
+	private int tid;
 	@Column(name="name")
-    private String name;
+	private String name;
 	@Column(name="category")
-    private String category;
+	private String category;
 	@Column(name="price")
 	private int price;
 	@Column(name="description")
