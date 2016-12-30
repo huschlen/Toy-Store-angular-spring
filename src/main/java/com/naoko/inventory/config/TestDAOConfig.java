@@ -10,18 +10,25 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
 import com.naoko.inventory.dao.IToyDAO;
 import com.naoko.inventory.dao.ToyDAO;
 import com.naoko.inventory.entity.Toy;
+
+/**
+ * Configuration for integration tests.
+ * 
+ * @author	Naoko Huschle
+ * @since	2016-12-20
+ *
+ */
   
-@Configuration 
+@Configuration
 @EnableTransactionManagement
 public class TestDAOConfig {  
 	@Bean  
-    public IToyDAO toyDao() {  
-        return new ToyDAO();  
-    }
+	public IToyDAO toyDao() {  
+		return new ToyDAO();  
+	}
 	@Bean
 	public HibernateTemplate hibernateTemplate() {
 		return new HibernateTemplate(sessionFactory());
