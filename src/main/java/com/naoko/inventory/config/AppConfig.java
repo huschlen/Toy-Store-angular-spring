@@ -7,6 +7,15 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+/**
+ * Configuration for the application.
+ * 
+ * @author	Naoko Huschle
+ * @since	2016-12-20
+ *
+ */
+
 @Configuration
 @ComponentScan("com.naoko.inventory")
 @EnableWebMvc
