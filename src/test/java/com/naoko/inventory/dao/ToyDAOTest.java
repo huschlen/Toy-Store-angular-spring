@@ -13,10 +13,18 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.annotation.*;
-
 import com.naoko.inventory.config.TestDAOConfig;
 import com.naoko.inventory.dao.IToyDAO;
 import com.naoko.inventory.entity.Toy;
+
+/**
+ * Integration tests for ToyDAO.
+ * 
+ * @author	Dave Odalen
+ * @author	Naoko Huschle
+ * @since	2016-12-20
+ *
+ */
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = TestDAOConfig.class)
