@@ -1,6 +1,6 @@
 package com.naoko.inventory.config;
-import com.naoko.inventory.entity.Toy;
 
+import com.naoko.inventory.entity.Toy;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
@@ -10,6 +10,14 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+/**
+ * Configuration for database.
+ * 
+ * @author	Naoko Huschle
+ * @since	2016-12-20
+ *
+ */
 
 @Configuration
 @EnableTransactionManagement
