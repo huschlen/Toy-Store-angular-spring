@@ -2,6 +2,14 @@ package com.naoko.inventory.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+/**
+ * Application initializer.
+ * 
+ * @author	Naoko Huschle
+ * @since	2016-12-20
+ *
+ */
+
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
