@@ -6,6 +6,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Service between the controller and DAO.
+ * Called from ToyController.  Calls ToyDAO.
+ * 
+ * @author	Naoko Huschle
+ * @since	2016-12-20
+ *
+ */
+
 @Service
 public class ToyService implements IToyService {
 	@Autowired
