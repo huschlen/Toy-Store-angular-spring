@@ -6,6 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import com.naoko.inventory.entity.Toy;
+
+/**
+ * Database communication.  Called from ToyService.
+ * 
+ * @author	Naoko Huschle
+ * @since	2016-12-20
+ *
+ */
+
 @Transactional
 @Repository
 public class ToyDAO implements IToyDAO {
