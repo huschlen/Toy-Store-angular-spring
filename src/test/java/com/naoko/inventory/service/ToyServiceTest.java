@@ -32,8 +32,8 @@ import org.mockito.*;
  /**
  * Unit tests for ToyService
  * 
- * @author 	Naoko Huschle
- * @since   2016-12-25
+ * @author	Naoko Huschle
+ * @since	2016-12-25
  *
  */
 
@@ -64,11 +64,11 @@ public class ToyServiceTest {
 		// check the value
 		assertEquals(toy, toyService.getToyById(1));
 		// verify interaction
- 		verify(toyDAO).getToyById(1);
+		verify(toyDAO).getToyById(1);
     } 
     @Test
     public void testGetAllToys() {
-    	List<Toy> toys = new ArrayList<>();
+		List<Toy> toys = new ArrayList<>();
 		Toy toy1 = new Toy();
 		toy1.setTid(1);
 		toy1.setName("Barbie Sara");
@@ -90,12 +90,12 @@ public class ToyServiceTest {
 		// check if we have gotten them all
 		assertEquals(2, toyService.getAllToys().size());
 		// make sure that toyDAO method was called
-        Mockito.verify(toyDAO).getAllToys();
+		Mockito.verify(toyDAO).getAllToys();
     }
     @Test
 	public void testAddToy(){
 		// toy to add
-        Toy toy1 = new Toy();
+		Toy toy1 = new Toy();
 		toy1.setTid(1);
 		toy1.setName("Barbie Sara");
 		toy1.setCategory("Doll");
@@ -105,7 +105,7 @@ public class ToyServiceTest {
 		// add a toy
 		Mockito.when(toyDAO.addToy(toy1)).thenReturn(true);
 		assertTrue(toyService.addToy(toy1));
-        Mockito.verify(toyDAO, Mockito.times(1)).addToy(toy1);
+		Mockito.verify(toyDAO, Mockito.times(1)).addToy(toy1);
     }
    
     @Test
@@ -133,15 +133,15 @@ public class ToyServiceTest {
     @Test
 	public void testDeleteToy() {
 		// toy to delete
-        Toy toy1 = new Toy();
+		Toy toy1 = new Toy();
 		toy1.setTid(1);
 		toy1.setName("Barbie Sara");
 		toy1.setCategory("Doll");
 		toy1.setPrice(100);
 		toy1.setDescription("Super cute");
 		toy1.setStock(2);         
-        toyService.deleteToy(toy1.getTid());
-        Mockito.verify(toyDAO, Mockito.times(1)).deleteToy(toy1.getTid());
+		toyService.deleteToy(toy1.getTid());
+		Mockito.verify(toyDAO, Mockito.times(1)).deleteToy(toy1.getTid());
 	}
 
 }
