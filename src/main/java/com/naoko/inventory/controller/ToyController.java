@@ -47,13 +47,13 @@ public class ToyController {
 	}
 	@RequestMapping(value= "/toys", method = RequestMethod.POST)
 	public ResponseEntity<Void> toyService(@RequestBody Toy toy, UriComponentsBuilder builder) {
-        boolean flag = toyService.addToy(toy);
-    	if (flag == false) {
-    		new ResponseEntity<Void>(HttpStatus.CONFLICT);
-        }
-        HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(builder.path("/toys/{id}").buildAndExpand(toy.getTid()).toUri());
-        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+		boolean flag = toyService.addToy(toy);
+		if (flag == false) {
+			new ResponseEntity<Void>(HttpStatus.CONFLICT);
+		}
+		HttpHeaders headers = new HttpHeaders();
+		headers.setLocation(builder.path("/toys/{id}").buildAndExpand(toy.getTid()).toUri());
+		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	}	
 	@RequestMapping(value="/toys/{id}", method = RequestMethod.PUT )
 	public ResponseEntity<Toy> updateToy(@RequestBody Toy toy) {
