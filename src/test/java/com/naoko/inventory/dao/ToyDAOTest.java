@@ -20,7 +20,6 @@ import com.naoko.inventory.entity.Toy;
 /**
  * Integration tests for ToyDAO.
  * 
- * @author	Dave Odalen
  * @author	Naoko Huschle
  * @since	2016-12-20
  *
