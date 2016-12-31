@@ -1,5 +1,7 @@
 package com.naoko.inventory.config;
 
+import org.springframework.context.annotation.Import;
+import org.springframework.security.access.SecurityConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
@@ -10,6 +12,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  *
  */
 
+@Import({SecurityConfig.class})
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
