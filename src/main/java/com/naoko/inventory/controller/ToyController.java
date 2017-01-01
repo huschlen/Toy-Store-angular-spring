@@ -31,8 +31,12 @@ public class ToyController {
 	public void setToyService(IToyService service) {
 		this.toyService = service;
 	}
-	@RequestMapping("/home")
+	/*@RequestMapping("/home")
 	public String home() {
+ 		return "home";
+ 	}*/
+	@RequestMapping(value="/login")
+	public String login() {
  		return "home";
  	}
 	@RequestMapping(value="/toys/{id}", method = RequestMethod.GET)
