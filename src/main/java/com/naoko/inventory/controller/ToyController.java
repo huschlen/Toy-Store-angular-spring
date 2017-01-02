@@ -23,7 +23,7 @@ import com.naoko.inventory.entity.Toy;
  */
 
 @Controller
-@RequestMapping("/toy-store")
+//@RequestMapping("/toy-store")
 public class ToyController {
 	@Autowired
 	private IToyService toyService;
@@ -31,14 +31,18 @@ public class ToyController {
 	public void setToyService(IToyService service) {
 		this.toyService = service;
 	}
-	/*@RequestMapping("/home")
+	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String home() {
- 		return "home";
- 	}*/
-	@RequestMapping(value="/login")
-	public String login() {
- 		return "home";
+		return "home";
  	}
+	/*@RequestMapping(value="/logout", method = RequestMethod.GET)
+	public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    if (auth != null){    
+	        new SecurityContextLogoutHandler().logout(request, response, auth);
+	    }
+	    return "redirect:/login?logout";
+	}*/
 	@RequestMapping(value="/toys/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Toy> getToyById(@PathVariable("id") Integer id) {
 		Toy toy = toyService.getToyById(id);

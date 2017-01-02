@@ -1,7 +1,7 @@
 var app = angular.module('ngInventory',['ui.bootstrap','ngResource']);
 
 app.factory('Toy', ['$resource', function ($resource) {
-	return $resource('http://localhost:8080/angular-spring-1/toy-store/toys/:toyId', {toyId: '@tid'},
+	return $resource('http://localhost:8080/angular-spring-1/toys/:toyId', {toyId: '@tid'},
 		{
 			updateToy: {method: 'PUT'}
 		}
