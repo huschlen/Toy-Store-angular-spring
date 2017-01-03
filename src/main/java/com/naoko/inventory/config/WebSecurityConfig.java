@@ -42,8 +42,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers(HttpMethod.DELETE, "/", "/toys")
 			.hasRole("USER")
 			.anyRequest().permitAll();
-				//.and()
-				//.formLogin().loginPage("/login");
+			//.and()
+			//.formLogin().loginPage("/login");
 	}
 		
 }

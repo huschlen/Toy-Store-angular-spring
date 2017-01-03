@@ -14,7 +14,10 @@
 				<a class="navbar-brand" href="#">Inventory</a>
 			</div>
 		</div>
-	</nav>	
+	</nav>
+	<div class="container col-sd-12 text-right">
+		<a href="/angular-spring-1/logout">Logout</a>
+	</div>
 	
 	<div class="container">
 

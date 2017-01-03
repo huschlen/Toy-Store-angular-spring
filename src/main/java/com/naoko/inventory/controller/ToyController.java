@@ -35,14 +35,10 @@ public class ToyController {
 	public String home() {
 		return "home";
  	}
-	/*@RequestMapping(value="/logout", method = RequestMethod.GET)
-	public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
-	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    if (auth != null){    
-	        new SecurityContextLogoutHandler().logout(request, response, auth);
-	    }
+	@RequestMapping(value="/logout", method = RequestMethod.GET)
+	public String logoutPage () {
 	    return "redirect:/login?logout";
-	}*/
+	}
 	@RequestMapping(value="/toys/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Toy> getToyById(@PathVariable("id") Integer id) {
 		Toy toy = toyService.getToyById(id);
